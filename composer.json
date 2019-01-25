@@ -1,0 +1,14 @@
+{
+  "name": "sota/coins-print",
+  "description": "Remote Print API/Client for Coins",
+  "require": {
+    "phpseclib/phpseclib": "^2.0",
+    "rmccue/requests": "^1.7"
+  },
+  "authors": [
+    {
+      "name": "SIY1121",
+      "email": "sota.0512.0213@gmail.com"
+    }
+  ]
+}
