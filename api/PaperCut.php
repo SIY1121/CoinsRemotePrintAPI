@@ -41,6 +41,14 @@ if (__FILE__ != realpath($_SERVER['SCRIPT_FILENAME']))
     return; //include時は以下を実行しない
 
 header('content-type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *');
+
+if($_SERVER['REQUEST_METHOD']!='POST'){
+    http_response_code(405);
+    header('Allow: POST');
+    echo json_encode(array('msg'=>'POSTリクエストのみ受け付けています。'));
+    exit();
+}
 
 if (!isset($_POST['user'], $_POST['pass'])) {
     http_response_code(400);
