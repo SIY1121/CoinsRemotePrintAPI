@@ -1,8 +1,8 @@
 <?php
 
 namespace siy\coins_print;
-require_once '../vendor/autoload.php';
-require_once '../helper/helper.php';
+require_once '../../vendor/autoload.php';
+require_once '../../helper/helper.php';
 
 
 /**
@@ -55,6 +55,7 @@ if (!isset($_POST['user'], $_POST['pass'])) {
     echo json_encode(array('msg'=>'userパラメータ、passパラメータが不足しています'));
     exit();
 }
+
 $pt = getPaperCutPoint($_POST['user'],$_POST['pass']);
 
 if(!isset($pt)){

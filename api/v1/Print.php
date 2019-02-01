@@ -3,8 +3,8 @@
 namespace siy\coins_print;
 
 ini_set('display_errors', "On");
-require_once '../vendor/autoload.php';
-require_once '../helper/helper.php';
+require_once '../../vendor/autoload.php';
+require_once '../../helper/helper.php';
 
 use phpseclib\Net\SCP;
 use phpseclib\Net\SSH2;
@@ -54,9 +54,10 @@ unlink($_FILES['up_file']['tmp_name']);
 
 //ファイルを自分のみが読み書きできるように権限を変更
 $ssh->exec('chmod 600 ~/coins_print_service_tmp_source.pdf');
+if(!(isset($_POST['test']) && $_POST['test'] == 'true'))
 //印刷実行
-//$data = $ssh->exec('lpr -P ' . $_POST['printer'] . ' ~/coins_print_service_tmp_source.pdf');
-$data = '';
+$data = $ssh->exec('lpr -P ' . $_POST['printer'] . ' ~/coins_print_service_tmp_source.pdf');
+//$data = '';
 $ssh->disconnect();
 
 echo json_encode(array('msg'=>'印刷のリクエストに成功しました','log'=>$data));

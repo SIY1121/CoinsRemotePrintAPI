@@ -3,8 +3,8 @@
 namespace siy\coins_print;
 
 ini_set('display_errors', "On");
-require_once '../vendor/autoload.php';
-require_once '../helper/helper.php';
+require_once '../../vendor/autoload.php';
+require_once '../../helper/helper.php';
 
 use phpseclib\Net\SSH2;
 
